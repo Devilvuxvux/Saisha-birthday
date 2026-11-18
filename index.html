@@ -1,0 +1,828 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Saisha ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --pink:#f7dce8;
+  --lavender:#e9e2fa;
+  --purple:#a28acb;
+  --dark:#695576;
+  --cream:#fffaf8;
+  --white:#fff;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html { scroll-behavior:smooth; }
+
+body {
+  background:var(--cream);
+  color:var(--dark);
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+}
+
+button { font-family:inherit; cursor:pointer; }
+
+h1,h2,h3 {
+  font-family:'Playfair Display',serif;
+}
+
+button:focus-visible {
+  outline:3px solid var(--purple);
+  outline-offset:4px;
+}
+
+/* FLOATING BACKGROUND */
+
+#particles {
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:20;
+}
+
+.particle {
+  position:absolute;
+  bottom:-30px;
+  animation:floatUp linear forwards;
+  opacity:.8;
+}
+
+@keyframes floatUp {
+  to {
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* INTRO */
+
+#intro {
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:25px;
+  background:
+    radial-gradient(circle at 20% 20%,#fce1ed,transparent 40%),
+    radial-gradient(circle at 80% 80%,#e6dcfa,transparent 45%),
+    #fffaf8;
+  transition:opacity .8s,visibility .8s;
+}
+
+#intro.hide {
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.intro-content { max-width:550px; }
+
+.bow {
+  font-size:65px;
+  animation:bob 3s ease-in-out infinite;
+}
+
+@keyframes bob {
+  50% { transform:translateY(-12px) rotate(5deg); }
+}
+
+.eyebrow {
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:11px;
+  color:#a28acb;
+  margin:20px 0;
+}
+
+.intro-content h1 {
+  font-size:clamp(43px,9vw,75px);
+  line-height:1.1;
+  color:#9877b6;
+}
+
+.intro-content p {
+  margin-top:20px;
+  line-height:1.9;
+  color:#987f9d;
+}
+
+.btn {
+  border:none;
+  background:linear-gradient(120deg,#d99bb9,#a993d0);
+  color:white;
+  padding:15px 30px;
+  border-radius:40px;
+  font-size:14px;
+  font-weight:600;
+  box-shadow:0 8px 25px #ad89c355;
+  transition:.3s;
+}
+
+.btn:hover {
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px #ad89c366;
+}
+
+.intro-content .btn { margin-top:30px; }
+
+/* MUSIC */
+
+.music {
+  position:fixed;
+  top:18px;
+  right:18px;
+  z-index:50;
+}
+
+.music button {
+  border:1px solid #e9d8ed;
+  background:#ffffffdb;
+  color:#9275ad;
+  border-radius:40px;
+  padding:11px 17px;
+  box-shadow:0 5px 20px #9877b61c;
+}
+
+/* HERO */
+
+.hero {
+  min-height:100vh;
+  padding:90px 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;1
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 10% 20%,#f9e1eb,transparent 45%),
+    radial-gradient(ellipse at 90% 80%,#e9e1fa,transparent 45%),
+    #fffaf8;
+}
+
+.hero::before,.hero::after {
+  content:'✦';
+  position:absolute;
+  color:#c9acd9;
+  font-size:50px;
+  animation:twinkle 3s infinite;
+}
+
+.hero::before { top:18%; left:12%; }
+.hero::after { bottom:20%; right:13%; }
+
+@keyframes twinkle {
+  50% { opacity:.3; transform:scale(.7) rotate(30deg); }
+}
+
+.hero h1 {
+  font-size:clamp(55px,11vw,110px);
+  line-height:1.08;
+  color:#9979b5;
+  margin:15px 0;
+}
+
+.hero h1 span {
+  color:#d48eae;
+  font-style:italic;
+}
+
+.hero p {
+  line-height:1.9;
+  color:#947e9c;
+  font-size:15px;
+}
+
+.hero .btn { margin-top:30px; }
+
+.scroll-note {
+  position:absolute;
+  bottom:25px;
+  font-size:12px;
+  letter-spacing:2px;
+  color:#a48eb1;
+}
+
+/* GENERAL SECTIONS */
+
+section { padding:90px 22px; }
+
+.section-title {
+  text-align:center;
+  font-size:clamp(34px,7vw,50px);
+  color:#9877b6;
+}
+
+.section-sub {
+  text-align:center;
+  margin:15px auto 45px;
+  color:#a28da5;
+  line-height:1.8;
+}
+
+/* PHOTO GALLERY */
+
+.gallery-section {
+  background:#fffaf8;
+}
+
+.gallery {
+  max-width:950px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:35px;
+}
+
+.polaroid {
+  padding:12px 12px 25px;
+  background:white;
+  box-shadow:0 10px 35px #9c7ba51b;
+  transform:rotate(var(--rotation));
+  transition:.4s;
+  cursor:pointer;
+}
+
+.polaroid:hover {
+  transform:rotate(0) translateY(-10px) scale(1.02);
+}
+
+.polaroid img {
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  background:#f0e4f4;
+  display:block;
+}
+
+.polaroid .caption {
+  font-family:'Caveat',cursive;
+  text-align:center;
+  font-size:25px;
+  margin-top:12px;
+}
+
+.upload-note {
+  text-align:center;
+  font-size:12px;
+  color:#a18ca6;
+  margin-top:35px;
+}
+
+/* BEST FRIEND LETTER */
+
+.letter-section {
+  background:linear-gradient(130deg,#f7e7ee,#eee8fb);
+}
+
+.letter {
+  max-width:700px;
+  margin:auto;
+  padding:clamp(28px,7vw,65px);
+  background:#fffaf8;
+  box-shadow:0 15px 50px #9c7ba51c;
+  line-height:2;
+  border-radius:8px;
+}
+
+.letter-top {
+  font-family:'Caveat',cursive;
+  font-size:32px;
+  color:#c28ba9;
+  margin-bottom:20px;
+}
+
+.letter p { margin:16px 0; }
+
+.signature {
+  font-family:'Caveat',cursive;
+  font-size:30px;
+  color:#ae83bd;
+  margin-top:25px;
+}
+
+/* FUN SECTION */
+
+.fun-section {
+  text-align:center;
+  background:#fffaf8;
+}
+
+.fun-grid {
+  max-width:850px;
+  margin:40px auto 0;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:18px;
+}
+
+.fun-card {
+  padding:30px 20px;
+  background:linear-gradient(140deg,#f9e7ee,#eee8fb);
+  border-radius:20px;
+  transition:.3s;
+}
+
+.fun-card:hover { transform:translateY(-7px); }
+
+.fun-card .emoji { font-size:38px; }
+
+.fun-card h3 {
+  margin:14px 0 8px;
+  font-size:20px;
+}
+
+.fun-card p {
+  font-size:13px;
+  line-height:1.7;
+  color:#927c9b;
+}
+
+/* CAKE */
+
+.cake-section {
+  text-align:center;
+  background:linear-gradient(140deg,#f9e8ef,#eee7fc);
+}
+
+.cake {
+  font-size:120px;
+  margin:30px 0;
+  animation:bob 3s infinite;
+  cursor:pointer;
+  display:inline-block;
+  transition:.3s;
+}
+
+.cake:hover { transform:scale(1.12); }
+
+#wish-message {
+  font-family:'Caveat',cursive;
+  font-size:28px;
+  color:#a17bb5;
+  margin-top:25px;
+  min-height:40px;
+}
+
+/* FINAL SURPRISE */
+
+.final-section {
+  text-align:center;
+  padding:110px 20px;
+  background:
+    radial-gradient(circle at 20% 20%,#f8e0ec,transparent 45%),
+    radial-gradient(circle at 80% 80%,#e7dffa,transparent 45%),
+    #fffaf8;
+}
+
+.final-section h2 {
+  font-size:clamp(40px,8vw,65px);
+  color:#9877b6;
+  margin:20px 0;
+}
+
+.final-section p {
+  color:#987f9d;
+  line-height:1.9;
+}
+
+#secret {
+  display:none;
+  max-width:550px;
+  margin:35px auto 0;
+  padding:30px;
+  background:#ffffffc9;
+  border-radius:20px;
+  font-family:'Caveat',cursive;
+  font-size:29px;
+  line-height:1.7;
+  color:#ae7da9;
+  animation:appear .8s;
+}
+
+@keyframes appear {
+  from { opacity:0; transform:translateY(20px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+footer {
+  padding:25px;
+  text-align:center;
+  font-size:12px;
+  color:#a38da8;
+  background:#fffaf8;
+}
+
+@media(max-width:550px) {
+  section { padding:70px 18px; }
+  .gallery { gap:25px; }
+  .music { top:12px; right:12px; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="particles"></div>
+
+<!-- MUSIC PLAYER -->
+<audio id="bgMusic" loop preload="none">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music">
+  <button id="musicBtn" onclick="toggleMusic()">♫ Play music</button>
+</div>
+
+<!-- INTRO SCREEN -->
+<div id="intro">
+  <div class="intro-content">
+    <div class="bow">🎀</div>
+    <div class="eyebrow">A little surprise for someone special</div>
+    <h1>Hey, Saisha! ♡</h1>
+    <p>
+      Someone has a birthday, and someone deserves
+      a whole little universe dedicated to her.
+    </p>
+    <button class="btn" onclick="openSite()">
+      Open your surprise 💌
+    </button>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="bow">🦋</div>
+  <div class="eyebrow">The universe is celebrating you</div>
+
+  <h1>Happy Birthday,<br><span>Saisha!</span></h1>
+
+  <p>
+    To the girl who deserves all the stars in the sky.<br>
+    Today is your little reminder of how special you are. ♡
+  </p>
+
+  <button class="btn" onclick="goTo('gallery')">
+    Enter your birthday world ✨
+  </button>
+
+  <div class="scroll-note">SCROLL TO EXPLORE ↓</div>
+</header>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+
+  <h2 class="section-title">Memories ♡</h2>
+
+  <p class="section-sub">
+    Some moments deserve their own little corner of the internet.
+  </p>
+
+  <div class="gallery">
+
+    <div class="polaroid" style="--rotation:-3deg">
+      <img src="photos/photo1.jpg" alt="Memory 1">
+      <div class="caption">♡</div>
+    </div>
+
+    <div class="polaroid" style="--rotation:2deg">
+      <img src="photos/photo2.jpg" alt="Memory 2">
+      <div class="caption">✨</div>
+    </div>
+
+    <div class="polaroid" style="--rotation:-2deg">
+      <img src="photos/photo3.jpg" alt="Memory 3">
+      <div class="caption"></div>
+    </div>
+
+    <div class="polaroid" style="--rotation:3deg">
+      <img src="photos/photo4.jpg" alt="Memory 4">
+      <div class="caption">💗</div>
+    </div>
+    <div class="polaroid" style="--rotation:4deg">
+      <img src="photos/photo5.jpg" alt="Memory 5">
+      <div class="caption">💗</div>
+    </div>
+<div class="polaroid" style="--rotation:-4deg">
+      <img src="photos/photo6.jpg" alt="Memory 6">
+      <div class="caption">💗</div>
+    </div>
+
+  </div>
+
+  <p class="upload-note">
+    ♡ 
+  </p>
+
+</section>
+
+<!-- LETTER -->
+<section class="letter-section">
+
+  <h2 class="section-title">A letter for you 💌</h2>
+
+  <p class="section-sub">
+    Because sometimes a simple happy birthday isn't enough.
+  </p>
+
+  <div class="letter">
+
+    <div class="letter-top">Dear Saisha, ♡</div>
+
+    <p>
+      HAPPY BIRTHDAYYYYY!! 🎀
+    </p>
+
+    <p>
+      First of all I hope you know how amazing you are.
+      I am genuinely so lucky to have you as my best friend.
+    </p>
+
+    <p>
+      Thank you for all the laughs, the unforgettable moments ,
+      and all the memories we've made.
+      Even the most ordinary days become special when I am with you.
+    </p>
+
+    <p>
+      I hope this year brings you endless happiness,
+      beautiful suprises and everything
+      your heart has been wishing for.
+    </p>
+
+    <p>
+      Keep being your kind, cute and wonderful self.
+      Never let the world take away the things that make you YOU.
+    </p><!-- HERO -->
+
+    <p>
+      And remember, no matter what happens
+      you will always have someone standing right beside you.
+    </p>
+
+    <div class="signature">
+      Your favourite bhoot (hopefully) ♡
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FUN CARDS -->
+<section class="fun-section">
+
+  <h2 class="section-title">A few birthday facts ✨</h2>
+
+  <p class="section-sub">
+    Important scientific discoveries about Saisha.
+  </p>
+
+  <div class="fun-grid">
+
+    <div class="fun-card">
+      <div class="emoji">👑</div>
+      <h3>Certified Yapper</h3>
+      <p>Silence? Never heard of such thing.</p>
+    </div>
+
+    <div class="fun-card">
+      <div class="emoji">📚</div>
+      <h3>Story Collector ✨</h3>
+<p>Always finding a new world between the pages.</p>
+<span class="card-tag">One more chapter ♡</span>
+    </div>
+
+    <div class="fun-card">
+      <div class="emoji">💗</div>
+      <h3>One of a Kind</h3>
+      <p>There is nobody like her and that is a fact.</p>
+    </div>
+
+    <div class="fun-card">
+      <div class="emoji">🌟</div>
+      <h3>Main Character</h3>
+      <p>Today the entire universe revolves around you.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CAKE -->
+<section class="cake-section">
+
+  <h2 class="section-title">Make a wish, Saisha! 🎂</h2>
+
+  <p class="section-sub">
+    Close your eyes, make a wish and tap the cake.
+  </p>
+
+  <div class="cake" onclick="makeWish()">🎂</div>
+
+  <br>
+
+  <button class="btn" onclick="makeWish()">
+    Make a wish ✨
+  </button>
+
+  <div id="wish-message"></div>
+
+</section>
+
+<!-- FINAL SURPRISE -->
+<section class="final-section">
+
+  <div class="bow">💗</div>
+
+  <div class="eyebrow">Before you go...</div>
+
+  <h2>One last thing.</h2>
+
+  <p>
+    This little website is just a small way of saying<br>
+    how much you mean to me.
+  </p>
+
+  <button class="btn" onclick="revealSecret()">
+    Open your final surprise 💌
+  </button>
+
+  <div id="secret">
+    Saisha, you are not just another person in my life.
+    You are one of those people who make life more fun,
+    a little more beautiful and a lot
+    more memorable.
+
+    <br><br>
+
+    HAPPY BIRTHDAY, TWIN!! 🎀
+
+    <br><br>
+
+    Always cheering for you. ♡
+  </div>
+
+</section>
+
+<footer>
+  Made with lot of love just for Saisha ♡
+  <br><br>
+  © A little birthday universe · 2026
+</footer>
+
+</main>
+
+<script>
+
+const audio = document.getElementById('bgMusic');
+const musicBtn = document.getElementById('musicBtn');
+
+function openSite() {
+  document.getElementById('intro').classList.add('hide');
+
+  window.scrollTo(0,0);
+
+  createParticles();
+
+  audio.play().then(()=>{
+    musicBtn.textContent='♫ Pause music';
+  }).catch(()=>{
+    musicBtn.textContent='♫ Play music';
+  });
+}
+
+function toggleMusic() {
+
+  if(audio.paused) {
+    audio.play().then(()=>{
+      musicBtn.textContent='♫ Pause music';
+    }).catch(()=>{
+      musicBtn.textContent='♫ Play music';
+    });
+  } else {
+    audio.pause();
+    musicBtn.textContent='♫ Play music';
+  }
+
+}
+
+function goTo(id) {
+  document.getElementById(id).scrollIntoView({
+    behavior:'smooth'
+  });
+}
+
+function createParticles() {
+
+  const container=document.getElementById('particles');
+
+  const symbols=['✦','♡','✨','🦋','⋆'];
+
+  setInterval(()=>{
+
+    const particle=document.createElement('span');
+
+    particle.className='particle';
+
+    particle.textContent=
+      symbols[Math.floor(Math.random()*symbols.length)];
+
+    particle.style.left=Math.random()*100+'vw';
+    particle.style.fontSize=(12+Math.random()*18)+'px';
+
+    const duration=4+Math.random()*4;
+
+    particle.style.animationDuration=duration+'s';
+
+    container.appendChild(particle);
+
+    setTimeout(()=>particle.remove(),duration*1000);
+
+  },450);
+
+}
+
+let wished=false;
+
+function makeWish() {
+
+  if(wished) return;
+
+  wished=true;
+
+  document.getElementById('wish-message').textContent=
+    '✨ Your wish has been sent to the universe! 💗';
+
+  document.querySelector('.cake').textContent='🧁';
+
+  confetti();
+}
+
+function confetti() {
+
+  const container=document.getElementById('particles');
+
+  const symbols=['💗','✨','🎀','🌸','⭐'];
+
+  for(let i=0;i<35;i++) {
+
+    const item=document.createElement('span');
+
+    item.className='particle';
+    item.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+
+    item.style.left=Math.random()*100+'vw';
+    item.style.fontSize=(15+Math.random()*20)+'px';
+
+    const duration=3+Math.random()*3;
+
+    item.style.animationDuration=duration+'s';
+
+    container.appendChild(item);
+
+    setTimeout(()=>item.remove(),duration*1000);
+
+  }
+
+}
+
+function revealSecret() {
+
+  const secret=document.getElementById('secret');
+
+  secret.style.display='block';
+
+  confetti();
+
+  secret.scrollIntoView({
+    behavior:'smooth',
+    block:'center'
+  });
+
+}
+
+</script>
+
+</body>
+</html>
